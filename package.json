@@ -1,5 +1,5 @@
 {
-  "name": "@oat-sa/tao-extension-release",
+  "name": "@serge-taotesting-com/tao-extension-release",
   "version": "2.6.4",
   "description": "Helps you to release TAO extensions - testing publishing",
   "engines": {
