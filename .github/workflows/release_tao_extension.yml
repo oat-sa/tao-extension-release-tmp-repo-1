@@ -44,6 +44,7 @@ jobs:
           npm config set //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
           npm i -g
           npm i update-notifier 
+          git status
           #create tag and release a new version
           taoRelease npmRelease --release-branch master --no-interactive
 
