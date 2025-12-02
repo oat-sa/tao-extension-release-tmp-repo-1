@@ -1,6 +1,6 @@
 {
   "name": "tao-extension-release",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Helps you to release TAO extensions",
   "engines": {
     "node": ">=14.0.0"
