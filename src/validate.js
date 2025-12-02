@@ -17,7 +17,7 @@
  */
 
 /**
- * Validation helper collection - some change 1
+ * Validation helper collection - some change 2
  *
  * @author Bertrand Chevrier <bertrand@taotesting.com>
  *
