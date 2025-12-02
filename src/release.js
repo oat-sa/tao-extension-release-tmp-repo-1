@@ -271,6 +271,7 @@ export default function taoExtensionReleaseFactory(params = {}) {
                     data.lastVersion,
                     subjectType,
                 );
+                log.info(`full response: ${JSON.stringify(pullRequest, null, 2)}`);
                 if (pullRequest && pullRequest.state === 'open') {
                     data.pr = {
                         url: pullRequest.html_url,
