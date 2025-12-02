@@ -109,9 +109,9 @@ export default function githubFactory(token, repository) {
                     body: `Release ${version} from ${fromVersion}`,
                     head: releasingBranch,
                     base: releaseBranch
-                }, (err, data, response) => {
+                }, (err, data) => {
                     if (err) {
-                        return reject(response);
+                        return reject({ err, data });
                     }
                     return resolve(data);
                 });
