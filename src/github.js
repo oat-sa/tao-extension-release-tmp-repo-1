@@ -104,10 +104,11 @@ export default function githubFactory(token, repository) {
                 return Promise.reject(new TypeError('Unable to create a release pull request when the branches are not defined'));
             }
             return new Promise((resolve, reject) => {
+                const [owner] = repository.split('/');
                 ghrepo.pr({
                     title: `Release ${version}`,
                     body: `Release ${version} from ${fromVersion}`,
-                    head: releasingBranch,
+                    head: `${owner}:${releasingBranch}`,
                     base: releaseBranch
                 }, (err, data) => {
                     if (err) {
