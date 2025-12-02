@@ -36,15 +36,19 @@ jobs:
           git config --global user.email "oat-github-bot@taotesting.com"                            
 
 
-      - name: install and run release tool
+      - name: npm install
         env: 
           GITHUB_TOKEN: ${{ secrets.SEMVER_GH_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.CI_NPM_RELEASE_TOKEN }}
         run: |
-          npm config set //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
           npm i -g
           npm i update-notifier 
           git status
+
+      - name: run release tool
+        env: 
+          GITHUB_TOKEN: ${{ secrets.SEMVER_GH_TOKEN }}
+        run: |
           #create tag and release a new version
           taoRelease npmRelease --release-branch master --no-interactive
 
