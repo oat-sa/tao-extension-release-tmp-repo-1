@@ -262,7 +262,7 @@ export default function taoExtensionReleaseFactory(params = {}) {
         async createPullRequest() {
             log.doing('Create the pull request');
 
-            let pullRequest;
+            let pullRequest = null;
             try {
                 pullRequest = await githubClient.createReleasePR(
                     data.releasingBranch,
