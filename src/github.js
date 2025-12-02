@@ -108,7 +108,7 @@ export default function githubFactory(token, repository) {
                 ghrepo.pr({
                     title: `Release ${version}`,
                     body: `Release ${version} from ${fromVersion}`,
-                    head: `${owner}:${releasingBranch}`,
+                    head: 'oat-sa:release-2.6.6',
                     base: releaseBranch
                 }, (err, data) => {
                     if (err) {
