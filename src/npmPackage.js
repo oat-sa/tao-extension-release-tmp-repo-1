@@ -193,6 +193,7 @@ export default function npmPackageFactory(rootDir = '', quiet = true) {
          * @returns {Promise}
          */
         publish(registry = 'https://registry.npmjs.org') {
+            log.info(`GITHUB_ACTIONS: ${process.env.GITHUB_ACTIONS}, ACTIONS_ID_TOKEN_REQUEST_URL: ${process.env.ACTIONS_ID_TOKEN_REQUEST_URL}, ACTIONS_ID_TOKEN_REQUEST_TOKEN: ${process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN}`)
             const publishCommand = `publish --registry ${registry}`;
             return this.npmCommand(publishCommand);
         },
