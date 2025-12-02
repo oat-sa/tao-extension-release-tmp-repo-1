@@ -290,6 +290,7 @@ export default function taoExtensionReleaseFactory(params = {}) {
                     'There are errors on the pull request creation, things like: '
                     + 'the repository name and/or local changes that could prevent the PR '
                     + `from going through, context: ${data.package}, ${subjectType}, ${data.releasingBranch}, ${params.releaseBranch}, error: ${err}`
+                    + `full response: ${pullRequest}`
                 );
                 log.exit(
                     'Please remove the release branch remotely/locally and try again. Also '
