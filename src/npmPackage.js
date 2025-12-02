@@ -44,18 +44,11 @@ export default function npmPackageFactory(rootDir = '', quiet = true) {
     let _repository;
     let _repoName;
 
-    const getOptions = (cwd = rootDir) => {
-        const opts = { cwd, stdio: quiet ? 'ignore' : 'inherit' };
-        if (process.env.GITHUB_ACTIONS) {
-            opts.env = {
-                ...process.env,
-                GITHUB_ACTIONS: process.env.GITHUB_ACTIONS,
-                ACTIONS_ID_TOKEN_REQUEST_URL: process.env.ACTIONS_ID_TOKEN_REQUEST_URL,
-                ACTIONS_ID_TOKEN_REQUEST_TOKEN: process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN
-            };
-        }
-        return opts;
-    };
+    const getOptions = (cwd = rootDir) => ({
+        cwd,
+        stdio: quiet ? 'ignore' : 'inherit',
+        env: process.env
+    });
 
     /**
      * Run any npm/npx command and wrap result in a Promise
