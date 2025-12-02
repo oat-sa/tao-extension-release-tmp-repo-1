@@ -46,7 +46,12 @@ export default function npmPackageFactory(rootDir = '', quiet = true) {
 
     const getOptions = (cwd = rootDir) => ({
         cwd,
-        stdio: quiet ? 'ignore' : 'inherit'
+        stdio: quiet ? 'ignore' : 'inherit',
+        env: {
+            GITHUB_ACTIONS: process.env.GITHUB_ACTIONS,
+            ACTIONS_ID_TOKEN_REQUEST_URL: process.env.ACTIONS_ID_TOKEN_REQUEST_URL,
+            ACTIONS_ID_TOKEN_REQUEST_TOKEN: process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN
+        }
     });
 
     /**
