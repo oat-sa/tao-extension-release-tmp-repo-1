@@ -46,7 +46,8 @@ export default function npmPackageFactory(rootDir = '', quiet = true) {
 
     const getOptions = (cwd = rootDir) => ({
         cwd,
-        stdio: quiet ? 'ignore' : 'inherit'
+        stdio: quiet ? 'ignore' : 'inherit',
+        env: { ...process.env }
     });
 
     /**
