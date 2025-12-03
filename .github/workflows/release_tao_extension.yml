@@ -49,7 +49,8 @@ jobs:
         env: 
           GITHUB_TOKEN: ${{ secrets.SEMVER_GH_TOKEN }}
         run: |
-          npm publish --registry https://registry.npmjs.org
+          npm --version
+          npm publish --registry https://registry.npmjs.org/
           #create tag and release a new version
           taoRelease npmRelease --release-branch master --no-interactive
 
