@@ -36,6 +36,10 @@ jobs:
           git config --global user.email "oat-github-bot@taotesting.com"                            
 
 
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: sudo npm install -g npm@latest
+
       - name: npm install
         env: 
           GITHUB_TOKEN: ${{ secrets.SEMVER_GH_TOKEN }}
@@ -49,6 +53,8 @@ jobs:
         env: 
           GITHUB_TOKEN: ${{ secrets.SEMVER_GH_TOKEN }}
         run: |
+          npm --version
+          # publish --registry https://registry.npmjs.org/
           #create tag and release a new version
           taoRelease npmRelease --release-branch master --no-interactive
 
